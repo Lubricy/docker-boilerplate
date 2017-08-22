@@ -9,10 +9,8 @@ all:
 env_make: config/env_make.example.mk
 	@cp $? $@
 
-.dockerignore: .gitignore
-
-build: .dockerignore $(CACHE_DIR)/.built
-$(CACHE_DIR)/.built: $(DOCKER_FILE)
+build: $(CACHE_DIR)/.built
+$(CACHE_DIR)/.built: $(DOCKER_FILE) .dockerignore
 	@mkdir -p $(CACHE_DIR)
 	$(DOCKER) build -t $(REPO):$(TAG) $(foreach arg, $(BUILD_ARGS), --build-arg $(arg)) -f $(DOCKER_FILE) .
 	touch $@

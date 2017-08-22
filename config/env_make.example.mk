@@ -11,7 +11,6 @@ REGISTRY       = docker.io
 REPO           = $(REGISTRY)/$(PROJECT_NAMESPACE)/$(PROJECT_NAME)
 CONTAINER_NAME = $(PROJECT_NAME)
 TAG            = latest
-DOCKER_DIR     = ./docker
 STACK          = $(PROJECT_NAMESPACE)
 BUILD_ARGS     = $(PROXY)
 ENV            = $(PROXY)

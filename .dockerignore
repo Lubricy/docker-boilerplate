@@ -1,0 +1,7 @@
+./.cache
+./.git
+./.gitignore
+./docker
+./config
+./env_make
+./Makefile
