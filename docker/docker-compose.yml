@@ -1,0 +1,23 @@
+version: '3'
+services:
+  backend:
+    image: "$IMAGE_NAME"
+    networks:
+      - default
+      - proxy
+    environment:
+      - http_proxy=$http_proxy
+      - https_proxy=$http_proxy
+      - HTTP_PROXY=$http_proxy
+      - HTTPS_PROXY=$http_proxy
+      - VIRTUAL_HOST=default.lo
+    volumes:
+    - "data:/opt/data"
+
+volumes:
+  data:
+
+networks:
+  proxy:
+    external:
+      name: rev-proxy_default
